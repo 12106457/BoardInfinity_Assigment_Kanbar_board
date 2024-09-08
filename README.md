@@ -1,4 +1,4 @@
-# Kanbar Board
+# Kanban Board
 
 ## Overview
   
