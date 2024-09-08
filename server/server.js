@@ -26,6 +26,9 @@ mongoose
 // Middleware
 app.use(express.json());
 app.use("/tasks", taskRoutes);
+app.get('/',(req,res)=>{
+  res.send("hello welcome to kanban board");
+});
 
 // Start server
 const PORT = process.env.PORT || 5000;
