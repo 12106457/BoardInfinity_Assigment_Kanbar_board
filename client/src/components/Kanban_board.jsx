@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TaskColumn from "../components/Task"; /
+import TaskColumn from "../components/Task";
 
 const KanbanBoard = () => {
   const [tasks, setTasks] = useState([]);
