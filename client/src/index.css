@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    width: 100%;
+    height: 3.5rem;
+    box-shadow: 0px 0px 5px;
+    overflow: hidden;
+    /* margin-bottom: 20px; */
+}
+.navbar img{
+    width: 4rem;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    scale: 2;
+    padding-left: 15px ;
+
+}
+.card-container{
+    border-left: 2px solid yellow !important;
+    border-left-height: 10px !important;
+    
+}
+/* .card-title{
+    font-weight: bolder;
+    font-size: 1.5rem;
+} */
+
+.priority-btn{
+    width: 3.375rem; 
+    height: 1.375rem; 
+    
+    font-size: 0.6875rem;
+    padding: 0.125rem; 
+    
+    font-weight: bolder;
+    border-radius: 0.3125rem;
+    border: none;
+}
+.task-change-drop-down{
+    width: 18px;
+    border: none;
+    margin:0 1rem;
+    
+}
+
+.title-drop-down{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.custom-container {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ddd; 
+  }
+  
+  .custom-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 4px;
+    height: 50%;
+    
+    background-color:transparent; 
+    transform: translateY(-50%);
+    border-radius: 10px;
+  }
+  
+
+
+  .custom-container.Todo-task::before {
+    background-color: #8A30E5; 
+  }
+  
+ 
+  .custom-container.Inprogress-task::before {
+    background-color: #FFC14E; /
+  }
+  
+  
+  .custom-container.completed-task::before {
+    background-color: #06C270; 
+  }
+
+
+
+
+
