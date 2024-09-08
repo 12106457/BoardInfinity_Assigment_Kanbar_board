@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors(
   {
-    origin:["https://kanban-board-frontend-mu.vercel.app/"],
+    origin:["https://kanban-board-frontend-mu.vercel.app"],
     methods:["POST","GET","PUT","DELETE"],
     credentials: true
   }
