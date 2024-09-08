@@ -18,3 +18,9 @@ A Kanban board is a visual tool used to manage tasks and workflow efficiently by
 
   <img src="https://github.com/user-attachments/assets/cdd38b74-401f-4619-9408-91be37e59704" alt="Screenshot 2024-08-19 225107" width="600" height="auto">
 
+  <img src="https://github.com/user-attachments/assets/144611f7-fb59-402f-a0c6-6476c5af1e0e" alt="Screenshot 2024-08-19 225107" width="600" height="auto">
+  
+  <img src="https://github.com/user-attachments/assets/144611f7-fb59-402f-a0c6-6476c5af1e0e" alt="Screenshot 2024-08-19 225107" width="600" height="auto">
+
+
+   
