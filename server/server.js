@@ -6,12 +6,12 @@ const cors = require("cors");
 const app = express();
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["http://localhost:5173","https://kanban-board-frontend-mu.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );
-// https://kanban-board-frontend-mu.vercel.app
+
 // Connect to MongoDB
 mongoose
   .connect(
