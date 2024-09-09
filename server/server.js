@@ -4,21 +4,17 @@ const taskRoutes = require("./routes/tasks");
 const cors = require("cors");
 
 const app = express();
-app.use(cors(
-  {
-    origin:["https://kanban-board-frontend-mu.vercel.app"],
-    methods:["POST","GET","PUT","DELETE"],
-    credentials: true
-  }
-));
+app.use(
+  cors({
+    origin: ["https://kanban-board-frontend-mu.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 // Connect to MongoDB
 mongoose
   .connect(
-    "mongodb+srv://kedarisettysai440:zGaI7ZFmPX1emwW8@karbanboarddb.3ow3j.mongodb.net/?retryWrites=true&w=majority&appName=karbanboarddb",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+    "mongodb+srv://kedarisettysai440:zGaI7ZFmPX1emwW8@karbanboarddb.3ow3j.mongodb.net/test?retryWrites=true&w=majority"
   )
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
@@ -26,7 +22,7 @@ mongoose
 // Middleware
 app.use(express.json());
 app.use("/tasks", taskRoutes);
-app.get('/',(req,res)=>{
+app.get("/", (req, res) => {
   res.send("hello welcome to kanban board");
 });
 
