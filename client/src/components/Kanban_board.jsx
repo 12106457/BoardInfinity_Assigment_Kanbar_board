@@ -131,41 +131,52 @@ const KanbanBoard = () => {
       </div>
 
       {/* Task Columns */}
-      {!loading && (
-      <div className="row">
-        <div className=" col-xs-4 col-md-4">
-          <TaskColumn
-            title="TODO"
-            tasks={tasks.filter((task) => task.status === "TODO")}
-            onStatusChange={handleStatusChange}
-            onDeleteTask={handleDeleteTask}
-          />
-        </div>
-        <div className="col-xs-4 col-md-4">
-          <TaskColumn
-            title="IN PROGRESS"
-            tasks={tasks.filter((task) => task.status === "IN_PROGRESS")}
-            onStatusChange={handleStatusChange}
-            onDeleteTask={handleDeleteTask}
-          />
-        </div>
-        <div className=" col-xs-4 col-md-4">
-          <TaskColumn
-            title="COMPLETED"
-            tasks={tasks.filter((task) => task.status === "COMPLETED")}
-            onStatusChange={handleStatusChange}
-            onDeleteTask={handleDeleteTask}
-          />
-        </div>
-      </div>)}
+      <div className="position-relative">
 
-      {loading && (
-        <div className="d-flex justify-content-center align-items-center my-5">
-          <GridLoader color="#8A30E5" size={15} />
+        {/* Spinner Overlay */}
+        {loading && (
+          <div
+            className="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.6)",
+              zIndex: 10,
+            }}
+          >
+            <GridLoader color="#8A30E5" size={15} />
+          </div>
+        )}
+
+        {/* Task Columns */}
+        <div className="row">
+          <div className="col-xs-4 col-md-4">
+            <TaskColumn
+              title="TODO"
+              tasks={tasks.filter((task) => task.status === "TODO")}
+              onStatusChange={handleStatusChange}
+              onDeleteTask={handleDeleteTask}
+            />
+          </div>
+
+          <div className="col-xs-4 col-md-4">
+            <TaskColumn
+              title="IN PROGRESS"
+              tasks={tasks.filter((task) => task.status === "IN_PROGRESS")}
+              onStatusChange={handleStatusChange}
+              onDeleteTask={handleDeleteTask}
+            />
+          </div>
+
+          <div className="col-xs-4 col-md-4">
+            <TaskColumn
+              title="COMPLETED"
+              tasks={tasks.filter((task) => task.status === "COMPLETED")}
+              onStatusChange={handleStatusChange}
+              onDeleteTask={handleDeleteTask}
+            />
+          </div>
         </div>
-      )}
 
-
+      </div>
       
       {showModal && (
         <div
