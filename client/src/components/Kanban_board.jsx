@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import TaskColumn from "../components/Task";
-
+import { GridLoader } from "react-spinners";
 const KanbanBoard = () => {
   const [tasks, setTasks] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
@@ -26,13 +28,15 @@ const KanbanBoard = () => {
 
   const baseURL=import.meta.env.VITE_API_URL
   const fetchTasks = () => {
+    setLoading(true);
     fetch(`${baseURL}/tasks`)
       .then((response) => response.json())
       .then((data) => {
         setTasks(data)
         // console.log(data)
       })
-      .catch((error) => console.error("Error fetching tasks:", error));
+      .catch((error) => console.error("Error fetching tasks:", error))
+      .finally(() => setLoading(false));
   };
 
   const handleCreateTask = () => {
@@ -63,6 +67,7 @@ const KanbanBoard = () => {
       
       
       if(titleError===''&&descriptionError===''&&dateError===''&&statusError===''&&priorityError===''){
+        setLoading(true);
         fetch(`${baseURL}/tasks`, {
           method: "POST",
           headers: {
@@ -82,7 +87,8 @@ const KanbanBoard = () => {
               priority: "",
             });
           })
-          .catch((error) => console.error("Error creating task:", error));
+          .catch((error) => console.error("Error creating task:", error))
+          .finally(() => setLoading(false));
       }
       
 
@@ -125,6 +131,7 @@ const KanbanBoard = () => {
       </div>
 
       {/* Task Columns */}
+      {!loading && (
       <div className="row">
         <div className=" col-xs-4 col-md-4">
           <TaskColumn
@@ -150,10 +157,14 @@ const KanbanBoard = () => {
             onDeleteTask={handleDeleteTask}
           />
         </div>
+      </div>)}
 
-        
-        
-      </div>
+      {loading && (
+        <div className="d-flex justify-content-center align-items-center my-5">
+          <GridLoader color="#8A30E5" size={15} />
+        </div>
+      )}
+
 
       
       {showModal && (
