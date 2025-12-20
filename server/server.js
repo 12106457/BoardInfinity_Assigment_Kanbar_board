@@ -2,21 +2,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const taskRoutes = require("./routes/tasks");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:5173","https://kanban-board-frontend-mu.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
-
+console.log(process.env.MONGODB_URL)
 // Connect to MongoDB
 mongoose
-  .connect(
-    "mongodb+srv://kedarisettysai440:zGaI7ZFmPX1emwW8@karbanboarddb.3ow3j.mongodb.net/test?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
