@@ -11,12 +11,18 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
-console.log(process.env.MONGODB_URL)
-// Connect to MongoDB
+if (!process.env.MONGODB_URL) {
+  console.error("❌ MONGODB_URL is missing");
+  process.exit(1);
+}
+
 mongoose
-  .connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .connect(process.env.MONGODB_URL)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => {
+    console.error("❌ MongoDB connection error:", err);
+    process.exit(1);
+  });
 
 // Middleware
 app.use(express.json());
