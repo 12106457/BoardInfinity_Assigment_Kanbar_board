@@ -3,7 +3,7 @@ import React from 'react'
 const Navbar = () => {
   return (
     <div className='navbar'>
-        <img src="https://cdn.brandfetch.io/idgT4cwnwD/w/400/h/400/theme/dark/icon.jpeg?k=id64Mup7ac&t=1721029871359?t=1721029871359" alt=" not found" />
+        <img src="https://thumbnail.imgbin.com/0/2/0/leadership-task-management-icon-iQkFJ3kS_t.jpg" alt="Task managment icon" />
     </div>
   )
 }
