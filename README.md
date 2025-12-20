@@ -11,7 +11,7 @@ A Kanban board is a visual tool used to manage tasks and workflow efficiently by
 - **Continuous Flow**: Tasks can be added or moved at any time, allowing for a flexible and dynamic workflow.
 - **Task Details**: Each task (card) can include descriptions, assignees, deadlines, attachments, and comments for better management.
 - **Swimlanes**: Horizontal rows that categorize tasks by priority, team, or type for better organization.
-- **Metrics and Analytics**: Provides insights into task progress, bottlenecks, and efficiency through metrics like cycle time and lead time.
+- **Metrics and Analytics**: Provides insights into task progress, bottlenecks, and efficiency through metrics like cycle time and lead time. 
 
 
 ## Project Overview

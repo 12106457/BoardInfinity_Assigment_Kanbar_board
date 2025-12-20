@@ -24,8 +24,9 @@ const KanbanBoard = () => {
     fetchTasks();
   }, []);
 
+  const baseURL=import.meta.env.VITE_API_URL
   const fetchTasks = () => {
-    fetch("https://kanbar-board-api.vercel.app/tasks")
+    fetch(`${baseURL}/tasks`)
       .then((response) => response.json())
       .then((data) => {
         setTasks(data)
@@ -62,7 +63,7 @@ const KanbanBoard = () => {
       
       
       if(titleError===''&&descriptionError===''&&dateError===''&&statusError===''&&priorityError===''){
-        fetch("https://kanbar-board-api.vercel.app/tasks", {
+        fetch(`${baseURL}/tasks`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -89,7 +90,7 @@ const KanbanBoard = () => {
   };
 
   const handleStatusChange = (id, status) => {
-    fetch(`${"https://kanbar-board-api.vercel.app/tasks"}/${id}`, {
+    fetch(`${baseURL}/tasks/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -101,7 +102,7 @@ const KanbanBoard = () => {
   };
 
   const handleDeleteTask = (id) => {
-    fetch(`${"https://kanbar-board-api.vercel.app/tasks"}/${id}`, {
+    fetch(`${baseURL}/tasks/${id}`, {
       method: "DELETE",
     })
       .then(() => fetchTasks())
